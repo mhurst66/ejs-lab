@@ -54,12 +54,13 @@ const restaurant = {
   
 
 // routes
+// home
 app.get('/', (req, res) => {
   res.render('home.ejs', {
-    restaurant: restaurant,
+    restaurant: restaurant
   })
 })
-
+// menu
 app.get('/menu', (req, res) => {
     const fullMenu = req.params.menu
 
@@ -67,6 +68,43 @@ app.get('/menu', (req, res) => {
         menu: restaurant.menu
     })
 })
+// category
+app.get('/menu/:category', (req, res) => {
+
+  let menuItems = []
+
+  if (req.params.category === 'mains') {
+    console.log("hit the filter - mains")
+    menuItems = restaurant.menu.filter((item) => item.category === req.params.category)
+    return res.render('category.ejs', {
+      menu: restaurant.menu
+
+    })
+  }
+
+  if (req.params.category === 'sides') {
+    console.log("hit the filter - sides")
+    menuItems = restaurant.menu.filter((item) => item.category === req.params.category)
+    return res.render('category.ejs', {
+      menu: restaurant.menu
+
+    })
+  }
+
+  if (req.params.category === 'desserts') {
+    console.log("hit the filter - dessets")
+    menuItems = restaurant.menu.filter((item) => item.category === req.params.category)
+    return res.render('category.ejs', {
+      menu: restaurant.menu
+
+    })
+  }
+
+  //   res.render('menu.ejs', {
+  //     menu: restaurant.menu
+  // })
+})
+
 
 
 

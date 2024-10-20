@@ -6,9 +6,38 @@
   <title>Menu</title>
 </head>
 <body>
+  <%- include('./partials/nav') %>
   <h1>Full Menu</h1>
   <ul>
-    <!-- Working on a forEach loop to render the menu items -->
+    <h2>Mains</h2>
+    <% menu.forEach(item => { %>
+      <% if (item.category === 'mains') { %>
+      <h3><%= item.name %></h3>
+      <li>Price: $<%= item.price %></li>
+      <li>Rating: <%= item.rating %></li>
+      <p>Details: <%= item.details %></p>
+      <% } %>
+    <% }) %>
+
+    <h2>Desserts</h2>
+    <% menu.forEach(item => { %>
+      <% if (item.category === 'desserts') { %>
+      <h3><%= item.name %></h3>
+      <li>Price: $<%= item.price %></li>
+      <li>Rating: <%= item.rating %></li>
+      <p>Details: <%= item.details %></p>
+      <% } %>
+    <% }) %>
+
+    <h2>Sides</h2>
+    <% menu.forEach(item => { %>
+      <% if (item.category === 'sides') { %>
+      <h3><%= item.name %></h3>
+      <li>Price: $<%= item.price %></li>
+      <li>Rating: <%= item.rating %></li>
+      <p>Details: <%= item.details %></p>
+      <% } %>
+    <% }) %>
   </ul>
 </body>
 </html>
