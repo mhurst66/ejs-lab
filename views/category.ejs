@@ -3,11 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
+  <title><%= displayCategory %></title>
 </head>
 <body>
   <%- include('./partials/nav') %>
-  <h1>category</h1>
+  <h1><%= displayCategory %></h1>
+
+<!-- Testing to see what menuItems displays -->
+  <h2><%= menuItems %></h2>
+
+<!-- forEach loop in progress -->
+  <% menuItems.forEach(item => { %>
+    <!-- <% if (item.category === displayCategory) { %> -->
+    <h3><%= item.name %></h3>
+    <li>Price: $<%= item.price %></li>
+    <li>Rating: <%= item.rating %></li>
+    <p>Details: <%= item.details %></p>
+    <!-- <% } %> -->
+  <% }) %>
+
   
 </body>
 </html>

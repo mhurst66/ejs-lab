@@ -71,38 +71,49 @@ app.get('/menu', (req, res) => {
 // category
 app.get('/menu/:category', (req, res) => {
 
+  let capitalMaker
+  let displayCategory
   let menuItems = []
 
   if (req.params.category === 'mains') {
+    capitalMaker = req.params.category
+    displayCategory = capitalMaker.charAt(0).toUpperCase() + capitalMaker.slice(1)
+    
     console.log("hit the filter - mains")
     menuItems = restaurant.menu.filter((item) => item.category === req.params.category)
     return res.render('category.ejs', {
-      menu: restaurant.menu
+      displayCategory: displayCategory,
+      menuItems: menuItems
 
     })
   }
 
   if (req.params.category === 'sides') {
+    capitalMaker = req.params.category
+    displayCategory = capitalMaker.charAt(0).toUpperCase() + capitalMaker.slice(1)
+    
     console.log("hit the filter - sides")
     menuItems = restaurant.menu.filter((item) => item.category === req.params.category)
     return res.render('category.ejs', {
-      menu: restaurant.menu
+      displayCategory: displayCategory,
+      menuItems: menuItems
 
     })
   }
 
   if (req.params.category === 'desserts') {
+    capitalMaker = req.params.category
+    displayCategory = capitalMaker.charAt(0).toUpperCase() + capitalMaker.slice(1)  
+    
     console.log("hit the filter - dessets")
     menuItems = restaurant.menu.filter((item) => item.category === req.params.category)
     return res.render('category.ejs', {
-      menu: restaurant.menu
+      displayCategory: displayCategory,
+      menuItems: menuItems
 
     })
   }
-
-  //   res.render('menu.ejs', {
-  //     menu: restaurant.menu
-  // })
+  
 })
 
 
